@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Block Strike</title>
+  <style>
+    body { margin: 0; overflow: hidden; }
+    #blocker {
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: rgba(0,0,0,0.5);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #ffffff;
+      font-family: sans-serif;
+      cursor: pointer;
+      user-select: none;
+    }
+    #crosshair {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 10px;
+      height: 10px;
+      margin-left: -5px;
+      margin-top: -5px;
+      border: 2px solid #ffffff;
+      border-radius: 50%;
+      pointer-events: none;
+      display: none;
+    }
+  </style>
+</head>
+<body>
+  <div id="blocker">Click to play</div>
+  <div id="crosshair"></div>
+  <script type="module" src="./src/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Minecraft Counter-Strike</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div id="gameContainer">
+        <!-- Main Menu -->
+        <div id="mainMenu" class="menu-screen">
+            <div class="menu-content">
+                <h1 class="game-title">MINECRAFT CS</h1>
+                <div class="menu-buttons">
+                    <button id="playBtn" class="menu-btn">PLAY GAME</button>
+                    <button id="settingsBtn" class="menu-btn">SETTINGS</button>
+                    <button id="helpBtn" class="menu-btn">HELP</button>
+                </div>
+                <div class="menu-footer">
+                    <p>WASD to move, Mouse to look, Click to shoot</p>
+                    <p>Plant/Defuse bombs, Eliminate enemies</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Team Selection -->
+        <div id="teamSelect" class="menu-screen hidden">
+            <div class="menu-content">
+                <h2>SELECT TEAM</h2>
+                <div class="team-buttons">
+                    <button id="ctBtn" class="team-btn ct-team">
+                        <div class="team-icon">🛡️</div>
+                        <div class="team-name">COUNTER-TERRORISTS</div>
+                        <div class="team-desc">Defend bombsites</div>
+                    </button>
+                    <button id="tBtn" class="team-btn t-team">
+                        <div class="team-icon">💣</div>
+                        <div class="team-name">TERRORISTS</div>
+                        <div class="team-desc">Plant bombs</div>
+                    </button>
+                </div>
+                <button id="backToMenu" class="menu-btn secondary">BACK</button>
+            </div>
+        </div>
+
+        <!-- Game UI -->
+        <div id="gameUI" class="hidden">
+            <canvas id="gameCanvas"></canvas>
+            
+            <!-- HUD -->
+            <div id="hud">
+                <div class="hud-top">
+                    <div class="score">
+                        <span class="team ct">CT: <span id="ctScore">0</span></span>
+                        <span class="round">Round <span id="roundNumber">1</span></span>
+                        <span class="team t">T: <span id="tScore">0</span></span>
+                    </div>
+                    <div class="timer">
+                        <span id="roundTimer">2:00</span>
+                    </div>
+                </div>
+                
+                <div class="hud-bottom">
+                    <div class="weapon-info">
+                        <div class="ammo">
+                            <span id="currentAmmo">30</span>/<span id="totalAmmo">90</span>
+                        </div>
+                        <div class="weapon-name" id="weaponName">AK-47</div>
+                    </div>
+                    
+                    <div class="player-info">
+                        <div class="health">
+                            <div class="health-bar">
+                                <div class="health-fill" id="healthFill"></div>
+                            </div>
+                            <span id="healthText">100</span>
+                        </div>
+                        <div class="armor">
+                            <div class="armor-bar">
+                                <div class="armor-fill" id="armorFill"></div>
+                            </div>
+                            <span id="armorText">100</span>
+                        </div>
+                    </div>
+                    
+                    <div class="objective">
+                        <div id="objectiveText">Eliminate all enemies</div>
+                        <div id="bombStatus" class="hidden">Bomb planted! Defuse it!</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Crosshair -->
+            <div id="crosshair">
+                <div class="crosshair-line horizontal"></div>
+                <div class="crosshair-line vertical"></div>
+            </div>
+
+            <!-- Pause Menu -->
+            <div id="pauseMenu" class="menu-overlay hidden">
+                <div class="menu-content">
+                    <h2>PAUSED</h2>
+                    <div class="menu-buttons">
+                        <button id="resumeBtn" class="menu-btn">RESUME</button>
+                        <button id="restartBtn" class="menu-btn">RESTART</button>
+                        <button id="quitBtn" class="menu-btn">QUIT TO MENU</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Round End Screen -->
+            <div id="roundEnd" class="menu-overlay hidden">
+                <div class="menu-content">
+                    <h2 id="roundResult">ROUND WIN</h2>
+                    <div class="round-stats">
+                        <div class="stat">
+                            <span class="stat-label">Kills:</span>
+                            <span id="killsStat">0</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat-label">Deaths:</span>
+                            <span id="deathsStat">0</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat-label">Damage:</span>
+                            <span id="damageStat">0</span>
+                        </div>
+                    </div>
+                    <div class="menu-buttons">
+                        <button id="nextRoundBtn" class="menu-btn">NEXT ROUND</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Settings Menu -->
+        <div id="settingsMenu" class="menu-screen hidden">
+            <div class="menu-content">
+                <h2>SETTINGS</h2>
+                <div class="settings-group">
+                    <label for="sensitivity">Mouse Sensitivity:</label>
+                    <input type="range" id="sensitivity" min="0.1" max="2" step="0.1" value="1">
+                    <span id="sensitivityValue">1.0</span>
+                </div>
+                <div class="settings-group">
+                    <label for="volume">Volume:</label>
+                    <input type="range" id="volume" min="0" max="100" value="50">
+                    <span id="volumeValue">50%</span>
+                </div>
+                <div class="settings-group">
+                    <label>
+                        <input type="checkbox" id="fullscreen"> Fullscreen
+                    </label>
+                </div>
+                <button id="backFromSettings" class="menu-btn">BACK</button>
+            </div>
+        </div>
+
+        <!-- Help Menu -->
+        <div id="helpMenu" class="menu-screen hidden">
+            <div class="menu-content">
+                <h2>HOW TO PLAY</h2>
+                <div class="help-content">
+                    <div class="help-section">
+                        <h3>Controls</h3>
+                        <ul>
+                            <li><strong>WASD:</strong> Move</li>
+                            <li><strong>Mouse:</strong> Look around</li>
+                            <li><strong>Left Click:</strong> Shoot</li>
+                            <li><strong>R:</strong> Reload</li>
+                            <li><strong>E:</strong> Interact (plant/defuse bomb)</li>
+                            <li><strong>1-5:</strong> Switch weapons</li>
+                            <li><strong>ESC:</strong> Pause</li>
+                        </ul>
+                    </div>
+                    <div class="help-section">
+                        <h3>Objectives</h3>
+                        <ul>
+                            <li><strong>Terrorists:</strong> Plant bomb at bombsites</li>
+                            <li><strong>Counter-Terrorists:</strong> Prevent bomb planting or defuse planted bombs</li>
+                            <li><strong>Both:</strong> Eliminate all enemy players</li>
+                        </ul>
+                    </div>
+                    <div class="help-section">
+                        <h3>Weapons</h3>
+                        <ul>
+                            <li><strong>AK-47:</strong> High damage, high recoil</li>
+                            <li><strong>M4A4:</strong> Balanced weapon</li>
+                            <li><strong>AWP:</strong> Sniper rifle, one-shot kill</li>
+                            <li><strong>Desert Eagle:</strong> Powerful pistol</li>
+                            <li><strong>Knife:</strong> Melee weapon</li>
+                        </ul>
+                    </div>
+                </div>
+                <button id="backFromHelp" class="menu-btn">BACK</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="game.js"></script>
+</body>
+</html>

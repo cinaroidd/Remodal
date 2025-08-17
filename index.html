@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BlockStrike - Minecraft Style Counter-Strike</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div id="gameContainer">
+        <!-- Game Canvas -->
+        <canvas id="gameCanvas"></canvas>
+        
+        <!-- Game UI -->
+        <div id="gameUI">
+            <!-- Crosshair -->
+            <div id="crosshair">
+                <div class="crosshair-line horizontal"></div>
+                <div class="crosshair-line vertical"></div>
+            </div>
+            
+            <!-- HUD -->
+            <div id="hud">
+                <div id="healthBar">
+                    <div class="bar-label">Health</div>
+                    <div class="bar-container">
+                        <div id="healthFill" class="bar-fill"></div>
+                        <div id="healthText" class="bar-text">100</div>
+                    </div>
+                </div>
+                
+                <div id="ammoDisplay">
+                    <div id="currentAmmo">30</div>
+                    <div id="totalAmmo">/ 90</div>
+                </div>
+                
+                <div id="weaponName">AK-47</div>
+            </div>
+            
+            <!-- Minimap -->
+            <div id="minimap">
+                <canvas id="minimapCanvas" width="150" height="150"></canvas>
+            </div>
+            
+            <!-- Score Display -->
+            <div id="scoreDisplay">
+                <div id="teamScores">
+                    <div class="team-score" id="terroristScore">T: 0</div>
+                    <div class="team-score" id="counterScore">CT: 0</div>
+                </div>
+                <div id="playerScore">Kills: 0 | Deaths: 0</div>
+            </div>
+        </div>
+        
+        <!-- Main Menu -->
+        <div id="mainMenu">
+            <h1>BlockStrike</h1>
+            <div class="menu-buttons">
+                <button id="playBtn" class="menu-btn">Play Game</button>
+                <button id="settingsBtn" class="menu-btn">Settings</button>
+                <button id="creditsBtn" class="menu-btn">Credits</button>
+            </div>
+        </div>
+        
+        <!-- Game Over Screen -->
+        <div id="gameOverScreen" class="hidden">
+            <h2 id="gameOverTitle">Round Over</h2>
+            <div id="gameOverStats"></div>
+            <button id="respawnBtn" class="menu-btn">Respawn</button>
+        </div>
+        
+        <!-- Loading Screen -->
+        <div id="loadingScreen">
+            <div class="loading-text">Loading BlockStrike...</div>
+            <div class="loading-bar">
+                <div id="loadingProgress"></div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Instructions -->
+    <div id="instructions" class="hidden">
+        <h3>Controls</h3>
+        <p>WASD - Move</p>
+        <p>Mouse - Look around</p>
+        <p>Left Click - Shoot</p>
+        <p>Right Click - Aim</p>
+        <p>R - Reload</p>
+        <p>Space - Jump</p>
+        <p>Shift - Run</p>
+        <p>C - Crouch</p>
+        <p>1-5 - Switch weapons</p>
+        <p>ESC - Menu</p>
+    </div>
+
+    <!-- Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/cannon.js/0.20.0/cannon.min.js"></script>
+    <script src="js/game.js"></script>
+    <script src="js/player.js"></script>
+    <script src="js/weapons.js"></script>
+    <script src="js/map.js"></script>
+    <script src="js/multiplayer.js"></script>
+    <script src="js/ui.js"></script>
+    <script src="js/audio.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>

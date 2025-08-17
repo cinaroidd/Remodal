@@ -1,287 +1,176 @@
-[![NPM version](https://img.shields.io/npm/v/remodal.svg?style=flat)](https://npmjs.org/package/remodal)
-[![Bower version](https://badge.fury.io/bo/remodal.svg)](http://badge.fury.io/bo/remodal)
-[![Travis](https://travis-ci.org/VodkaBears/Remodal.svg?branch=master)](https://travis-ci.org/VodkaBears/Remodal)
-Remodal
-=======
-
-**No longer actively maintained. I am not interested to maintain jQuery plugins anymore. If you have some fixes, feel free to make PR.**
-
-Responsive, lightweight, fast, synchronized with CSS animations, fully customizable modal window plugin with declarative configuration and hash tracking.
-
-![logo](https://raw.githubusercontent.com/VodkaBears/vodkabears.github.com/master/remodal/remodal.png)
-
-## Notes
-* All modern browsers are supported.
-* IE8+. To enable IE8 styles add the `lt-ie9` class to the `html` element, as modernizr does.
-* jQuery, jQuery2, Zepto support.
-* Browserify support.
-
-## Start
-
-Download the latest version from [GitHub](https://github.com/VodkaBears/Remodal/releases/latest
-) or via package managers:
-```
-npm install remodal
-bower install remodal
-```
-
-Include the CSS files from the dist folder in the head section:
-```html
-<link rel="stylesheet" href="../dist/remodal.css">
-<link rel="stylesheet" href="../dist/remodal-default-theme.css">
-```
-
-Include the JS file from the dist folder before the `</body>`:
-```html
-<script src="../dist/remodal.min.js"></script>
-```
-
-You can define the background container for the modal(for effects like a blur). It can be any simple content wrapper:
-```html
-<div class="remodal-bg">
-...Page content...
-</div>
-```
-
-And now create the modal dialog:
-```html
-<div class="remodal" data-remodal-id="modal">
-  <button data-remodal-action="close" class="remodal-close"></button>
-  <h1>Remodal</h1>
-  <p>
-    Responsive, lightweight, fast, synchronized with CSS animations, fully customizable modal window plugin with declarative configuration and hash tracking.
-  </p>
-  <br>
-  <button data-remodal-action="cancel" class="remodal-cancel">Cancel</button>
-  <button data-remodal-action="confirm" class="remodal-confirm">OK</button>
-</div>
-```
-
-Don't use the `id` attribute, if you want to avoid the anchor jump, use `data-remodal-id`.
-
-So, now you can call it with the hash:
-```html
-<a href="#modal">Call the modal with data-remodal-id="modal"</a>
-```
-Or:
-```html
-<a data-remodal-target="modal">Call the modal with data-remodal-id="modal"</a>
-```
-
-## Options
-
-You can pass additional options with the `data-remodal-options` attribute.
-```html
-<div class="remodal" data-remodal-id="modal"
-  data-remodal-options="hashTracking: false, closeOnOutsideClick: false">
-
-  <button data-remodal-action="close" class="remodal-close"></button>
-  <h1>Remodal</h1>
-  <p>
-    Responsive, lightweight, fast, synchronized with CSS animations, fully customizable modal window plugin with declarative configuration and hash tracking.
-  </p>
-  <br>
-  <button data-remodal-action="cancel" class="remodal-cancel">Cancel</button>
-  <button data-remodal-action="confirm" class="remodal-confirm">OK</button>
-</div>
-```
-
-#### hashTracking
-`Default: true`
-
-To open the modal without the hash, use the `data-remodal-target` attribute.
-```html
-<a data-remodal-target="modal" href="#">Call the modal with data-remodal-id="modal"</a>
-```
-
-#### closeOnConfirm
-`Default: true`
-
-If true, closes the modal window after clicking the confirm button.
-
-#### closeOnCancel
-`Default: true`
+# Minecraft Counter-Strike
+
+A web-based first-person shooter game that combines the tactical gameplay of Counter-Strike with the blocky, pixelated aesthetics of Minecraft.
+
+## 🎮 Game Features
+
+### Core Gameplay
+- **Team-based combat**: Choose between Counter-Terrorists (CT) or Terrorists (T)
+- **Multiple weapons**: AK-47, M4A4, AWP sniper rifle, Desert Eagle, and Knife
+- **Bomb planting/defusing**: Classic CS objectives with bomb sites A and B
+- **Round-based matches**: Multiple rounds with score tracking
+- **AI opponents**: Intelligent bots that respond to your actions
+
+### Minecraft-Style Graphics
+- **Blocky aesthetics**: Pixelated, Minecraft-inspired visual design
+- **Simple 3D perspective**: Top-down view with directional indicators
+- **Color-coded teams**: Green for CT, Red for T
+- **Health and armor bars**: Visual status indicators
+
+### Game Systems
+- **Weapon management**: Reload mechanics, ammo tracking, weapon switching
+- **Damage system**: Health, armor, and realistic damage calculations
+- **Collision detection**: Block-based movement and cover system
+- **Timer system**: Round timers and bomb countdown
+- **Score tracking**: Kills, deaths, and damage statistics
+
+## 🎯 How to Play
+
+### Controls
+- **WASD**: Move around the map
+- **Mouse**: Look around and aim
+- **Left Click**: Shoot your weapon
+- **R**: Reload weapon
+- **E**: Interact (plant/defuse bomb)
+- **1-5**: Switch between weapons
+- **ESC**: Pause game
+
+### Objectives
+
+#### For Terrorists (T):
+- Plant the bomb at either bombsite A or B
+- Eliminate all Counter-Terrorists
+- Prevent bomb defusal
+
+#### For Counter-Terrorists (CT):
+- Prevent bomb planting
+- Defuse the bomb if planted
+- Eliminate all Terrorists
+
+### Weapons
+
+1. **AK-47** (Slot 1)
+   - High damage, high recoil
+   - 30 rounds per magazine
+   - Best for close to medium range
+
+2. **M4A4** (Slot 2)
+   - Balanced weapon
+   - 30 rounds per magazine
+   - Good for all ranges
+
+3. **AWP** (Slot 3)
+   - Sniper rifle
+   - One-shot kill potential
+   - 5 rounds per magazine
+   - Long reload time
+
+4. **Desert Eagle** (Slot 4)
+   - Powerful pistol
+   - 7 rounds per magazine
+   - High damage, low capacity
+
+5. **Knife** (Slot 5)
+   - Melee weapon
+   - Instant kill at close range
+   - No ammo required
+
+### Game Mechanics
+
+#### Health and Armor
+- **Health**: 100 points, when depleted you die
+- **Armor**: 100 points, reduces incoming damage by 50%
+- **Regeneration**: None - health and armor don't regenerate
+
+#### Damage System
+- Different weapons deal different damage
+- Armor absorbs 50% of damage
+- Headshots and critical hits are not implemented in this version
+
+#### Round System
+- Each round lasts 2 minutes
+- Teams score points for winning rounds
+- New round starts after round end
+- All players respawn with full health and armor
+
+#### Bomb Mechanics
+- Terrorists can plant bomb at designated sites
+- Bomb takes 45 seconds to explode
+- Counter-Terrorists can defuse bomb by pressing E near it
+- Bomb explosion wins the round for Terrorists
+
+## 🚀 Getting Started
 
-If true, closes the modal window after clicking the cancel button.
+1. **Open the game**: Simply open `index.html` in a modern web browser
+2. **Select team**: Choose between Counter-Terrorists or Terrorists
+3. **Start playing**: Use WASD to move and mouse to aim
+4. **Complete objectives**: Plant/defuse bombs or eliminate enemies
 
-#### closeOnEscape
-`Default: true`
+## 🎨 Technical Details
 
-If true, closes the modal window after pressing the ESC key.
+### Built With
+- **HTML5 Canvas**: For rendering the game graphics
+- **Vanilla JavaScript**: No external libraries or frameworks
+- **CSS3**: Modern styling with animations and effects
+- **Web APIs**: Pointer Lock API for mouse control
 
-#### closeOnOutsideClick
-`Default: true`
+### Browser Compatibility
+- Chrome/Chromium (recommended)
+- Firefox
+- Safari
+- Edge
 
-If true, closes the modal window by clicking anywhere on the page.
+### Performance
+- Optimized for 60 FPS gameplay
+- Efficient collision detection
+- Smooth animations and transitions
 
-#### modifier
-`Default: ''`
+## 🎮 Game Tips
 
-Modifier CSS classes for the modal that is added to the overlay, modal, background and wrapper (see [CSS](#css)).
+### For Beginners
+1. **Start with M4A4**: It's the most balanced weapon
+2. **Use cover**: Hide behind blocks to avoid enemy fire
+3. **Watch your health**: Don't engage when low on health
+4. **Learn the map**: Know where bombsites are located
+5. **Reload often**: Keep your weapon loaded
 
-#### appendTo
-`Default: document.body`
+### Advanced Strategies
+1. **Weapon switching**: Use different weapons for different situations
+2. **Positioning**: Use high ground and cover effectively
+3. **Team coordination**: Work with AI teammates
+4. **Bomb management**: Time your bomb plants carefully
+5. **Economy management**: Manage your ammo efficiently
 
-## Globals
+## 🔧 Customization
 
-```html
-<script>
-window.REMODAL_GLOBALS = {
-  NAMESPACE: 'modal',
-  DEFAULTS: {
-    hashTracking: false
-  }
-};
-</script>
-<script src="../dist/remodal.js"></script>
-```
+The game can be easily customized by modifying the JavaScript code:
 
-#### NAMESPACE
+- **Map layout**: Change block positions in `generateMap()`
+- **Weapon stats**: Modify damage, ammo, and reload times
+- **AI behavior**: Adjust AI movement and shooting patterns
+- **Game settings**: Change round time, bomb timer, etc.
 
-Base HTML class for your modals. CSS theme should be updated to reflect this.
+## 🐛 Known Issues
 
-#### DEFAULTS
+- Mouse sensitivity may vary between browsers
+- Some browsers may require HTTPS for pointer lock
+- Performance may vary on older devices
 
-Extends the default settings.
+## 📝 Future Enhancements
 
-## Initialization with JavaScript
+Potential features for future versions:
+- Sound effects and music
+- More detailed graphics and textures
+- Multiple maps
+- Multiplayer support
+- More weapons and equipment
+- Advanced AI behaviors
+- Achievement system
 
-Do not set the 'remodal' class, if you prefer a JS initialization.
-```html
-<div data-remodal-id="modal">
-  <button data-remodal-action="close" class="remodal-close"></button>
-  <h1>Remodal</h1>
-  <p>
-    Responsive, lightweight, fast, synchronized with CSS animations, fully customizable modal window plugin with declarative configuration and hash tracking.
-  </p>
-</div>
-<script>
-    var options = {...};
+## 📄 License
 
-    $('[data-remodal-id=modal]').remodal(options);
-</script>
-```
+This project is open source and available under the MIT License.
 
-## Methods
+---
 
-Get the instance of the modal and call a method:
-```js
-var inst = $('[data-remodal-id=modal]').remodal();
-
-/**
- * Opens the modal window
- */
-inst.open();
-
-/**
- * Closes the modal window
- */
-inst.close();
-
-/**
- * Returns a current state of the modal
- * @returns {'closed'|'closing'|'opened'|'opening'}
- */
-inst.getState();
-
-/**
- * Destroys the modal window
- */
-inst.destroy();
-```
-
-## Events
-
-```js
-$(document).on('opening', '.remodal', function () {
-  console.log('Modal is opening');
-});
-
-$(document).on('opened', '.remodal', function () {
-  console.log('Modal is opened');
-});
-
-$(document).on('closing', '.remodal', function (e) {
-
-  // Reason: 'confirmation', 'cancellation'
-  console.log('Modal is closing' + (e.reason ? ', reason: ' + e.reason : ''));
-});
-
-$(document).on('closed', '.remodal', function (e) {
-
-  // Reason: 'confirmation', 'cancellation'
-  console.log('Modal is closed' + (e.reason ? ', reason: ' + e.reason : ''));
-});
-
-$(document).on('confirmation', '.remodal', function () {
-  console.log('Confirmation button is clicked');
-});
-
-$(document).on('cancellation', '.remodal', function () {
-  console.log('Cancel button is clicked');
-});
-```
-
-## CSS
-
-#### Classes
-
-`.remodal` – the default class of modal dialogs.
-
-`.remodal-wrapper` – the additional wrapper for the `.remodal`, it is not the overlay and used for the alignment.
-
-`.remodal-overlay` – the overlay of modal dialogs, it is under the wrapper.
-
-`.remodal-bg` – the background of modal dialogs, it is under the overlay and usually it is the wrapper of your content. You should add it on your own.
-
-The `remodal` prefix can be changed in the global settings. See [the `NAMESPACE` option](#namespace).
-
-#### States
-
-States are added to the `.remodal`, `.remodal-overlay`, `.remodal-bg`, `.remodal-wrapper` classes.
-
-List:
-```
-.remodal-is-opening
-.remodal-is-opened
-.remodal-is-closing
-.remodal-is-closed
-```
-
-#### Modifier
-
-A modifier that is specified in the [options](#options) is added to the `.remodal`, `.remodal-overlay`, `.remodal-bg`, `.remodal-wrapper` classes.
-
-## Using with other javascript libraries
-
-Remodal has wrappers that make it easy to use with other javascript libraries:
-
-### Ember
-
-* [ember-remodal](https://github.com/sethbrasile/ember-remodal)
-
-## License
-
-```
-The MIT License (MIT)
-
-Copyright (c) 2015 Ilya Makarov
-
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
-
-The above copyright notice and this permission notice shall be included in all
-copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-SOFTWARE.
-```
+**Enjoy playing Minecraft Counter-Strike!** 🎮💥

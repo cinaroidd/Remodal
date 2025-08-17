@@ -1,287 +1,253 @@
-[![NPM version](https://img.shields.io/npm/v/remodal.svg?style=flat)](https://npmjs.org/package/remodal)
-[![Bower version](https://badge.fury.io/bo/remodal.svg)](http://badge.fury.io/bo/remodal)
-[![Travis](https://travis-ci.org/VodkaBears/Remodal.svg?branch=master)](https://travis-ci.org/VodkaBears/Remodal)
-Remodal
-=======
+# BlockStrike
 
-**No longer actively maintained. I am not interested to maintain jQuery plugins anymore. If you have some fixes, feel free to make PR.**
+A Minecraft-style Counter-Strike web game built with Three.js and Cannon.js physics engine.
 
-Responsive, lightweight, fast, synchronized with CSS animations, fully customizable modal window plugin with declarative configuration and hash tracking.
+![BlockStrike Game](https://img.shields.io/badge/Game-BlockStrike-orange) ![Three.js](https://img.shields.io/badge/Three.js-r128-blue) ![Physics](https://img.shields.io/badge/Physics-Cannon.js-green)
 
-![logo](https://raw.githubusercontent.com/VodkaBears/vodkabears.github.com/master/remodal/remodal.png)
+## 🎮 Features
 
-## Notes
-* All modern browsers are supported.
-* IE8+. To enable IE8 styles add the `lt-ie9` class to the `html` element, as modernizr does.
-* jQuery, jQuery2, Zepto support.
-* Browserify support.
+### Core Gameplay
+- **First-Person Shooter**: Classic FPS controls with mouse look and WASD movement
+- **Minecraft-Style Graphics**: Blocky, pixelated aesthetic with destructible environments
+- **Counter-Strike Mechanics**: Weapon system inspired by CS with different gun types
+- **Physics-Based**: Realistic movement, jumping, and projectile physics
 
-## Start
+### Weapons & Combat
+- **Diverse Arsenal**: Pistols (Glock, USP, Desert Eagle), Rifles (AK-47, M4A4, AWP), SMGs, Shotguns
+- **Grenades**: HE Grenades, Flashbangs, Smoke Grenades with realistic effects
+- **Realistic Ballistics**: Bullet drop, recoil patterns, and damage falloff
+- **Destructible Environment**: Shoot and destroy blocks in the world
 
-Download the latest version from [GitHub](https://github.com/VodkaBears/Remodal/releases/latest
-) or via package managers:
+### Game Systems
+- **Dynamic Maps**: Procedurally enhanced maps with multiple game modes
+- **Health & Armor System**: CS-style health management
+- **Team-Based**: Terrorist vs Counter-Terrorist gameplay
+- **HUD & UI**: Professional game interface with minimap, health bars, ammo counter
+
+### Audio & Effects
+- **Procedural Audio**: Web Audio API generated sounds for weapons, explosions, footsteps
+- **3D Spatial Audio**: Distance-based sound effects
+- **Visual Effects**: Muzzle flashes, bullet trails, particle systems for explosions
+
+## 🚀 Getting Started
+
+### Prerequisites
+- Modern web browser with WebGL support
+- No installation required - runs directly in browser
+
+### How to Play
+1. Open `index.html` in your web browser
+2. Click "Play Game" to start
+3. Use the following controls:
+
+#### Controls
+- **WASD** - Move (W: Forward, S: Backward, A: Left, D: Right)
+- **Mouse** - Look around
+- **Left Click** - Shoot/Attack
+- **Right Click** - Aim down sights
+- **Space** - Jump
+- **Shift** - Run
+- **C** - Crouch
+- **R** - Reload
+- **1-3** - Switch weapons (1: Primary, 2: Secondary, 3: Knife)
+- **4-5** - Grenades
+- **Tab** - Show scoreboard
+- **M** - Toggle minimap
+- **ESC** - Pause menu
+
+## 🏗️ Technical Architecture
+
+### Core Technologies
+- **Three.js r128**: 3D graphics rendering and scene management
+- **Cannon.js**: Physics simulation for realistic movement and collisions
+- **Web Audio API**: Procedural sound generation and 3D audio
+- **HTML5 Canvas**: 2D minimap rendering
+
+### Project Structure
 ```
-npm install remodal
-bower install remodal
-```
-
-Include the CSS files from the dist folder in the head section:
-```html
-<link rel="stylesheet" href="../dist/remodal.css">
-<link rel="stylesheet" href="../dist/remodal-default-theme.css">
-```
-
-Include the JS file from the dist folder before the `</body>`:
-```html
-<script src="../dist/remodal.min.js"></script>
-```
-
-You can define the background container for the modal(for effects like a blur). It can be any simple content wrapper:
-```html
-<div class="remodal-bg">
-...Page content...
-</div>
-```
-
-And now create the modal dialog:
-```html
-<div class="remodal" data-remodal-id="modal">
-  <button data-remodal-action="close" class="remodal-close"></button>
-  <h1>Remodal</h1>
-  <p>
-    Responsive, lightweight, fast, synchronized with CSS animations, fully customizable modal window plugin with declarative configuration and hash tracking.
-  </p>
-  <br>
-  <button data-remodal-action="cancel" class="remodal-cancel">Cancel</button>
-  <button data-remodal-action="confirm" class="remodal-confirm">OK</button>
-</div>
-```
-
-Don't use the `id` attribute, if you want to avoid the anchor jump, use `data-remodal-id`.
-
-So, now you can call it with the hash:
-```html
-<a href="#modal">Call the modal with data-remodal-id="modal"</a>
-```
-Or:
-```html
-<a data-remodal-target="modal">Call the modal with data-remodal-id="modal"</a>
-```
-
-## Options
-
-You can pass additional options with the `data-remodal-options` attribute.
-```html
-<div class="remodal" data-remodal-id="modal"
-  data-remodal-options="hashTracking: false, closeOnOutsideClick: false">
-
-  <button data-remodal-action="close" class="remodal-close"></button>
-  <h1>Remodal</h1>
-  <p>
-    Responsive, lightweight, fast, synchronized with CSS animations, fully customizable modal window plugin with declarative configuration and hash tracking.
-  </p>
-  <br>
-  <button data-remodal-action="cancel" class="remodal-cancel">Cancel</button>
-  <button data-remodal-action="confirm" class="remodal-confirm">OK</button>
-</div>
+BlockStrike/
+├── index.html          # Main game page
+├── styles.css          # Game styling and UI
+├── js/
+│   ├── main.js         # Entry point and initialization
+│   ├── game.js         # Core game engine and loop
+│   ├── player.js       # Player movement and controls
+│   ├── weapons.js      # Weapon system and ballistics
+│   ├── map.js          # Map generation and block system
+│   ├── ui.js           # User interface and HUD
+│   ├── audio.js        # Audio system and effects
+│   └── multiplayer.js  # Multiplayer framework (placeholder)
+└── README.md           # This file
 ```
 
-#### hashTracking
-`Default: true`
+### Key Classes
+- **Game**: Main game engine, scene management, game loop
+- **Player**: First-person controls, physics, weapon handling
+- **WeaponSystem**: Weapon mechanics, ballistics, effects
+- **MapSystem**: Block-based world, destructible environment
+- **UI**: Game interface, HUD, menus
+- **AudioSystem**: Procedural sound generation, 3D audio
 
-To open the modal without the hash, use the `data-remodal-target` attribute.
-```html
-<a data-remodal-target="modal" href="#">Call the modal with data-remodal-id="modal"</a>
+## 🎯 Game Modes
+
+### Deathmatch
+- Free-for-all combat
+- Destroy blocks for cover
+- First to reach score limit wins
+
+### Team Deathmatch (Planned)
+- Terrorist vs Counter-Terrorist teams
+- Team-based objectives
+- Round-based gameplay
+
+### Bomb Defusal (Planned)
+- Classic Counter-Strike mode
+- Plant/defuse bomb objectives
+- Strategic team gameplay
+
+## 🔧 Customization & Modding
+
+The game is built with modularity in mind. You can easily:
+
+### Add New Weapons
+```javascript
+// In weapons.js, add to weaponDefinitions
+newWeapon: {
+    name: 'Custom Gun',
+    type: 'primary',
+    damage: 40,
+    range: 75,
+    fireRate: 500,
+    // ... other properties
+}
 ```
 
-#### closeOnConfirm
-`Default: true`
-
-If true, closes the modal window after clicking the confirm button.
-
-#### closeOnCancel
-`Default: true`
-
-If true, closes the modal window after clicking the cancel button.
-
-#### closeOnEscape
-`Default: true`
-
-If true, closes the modal window after pressing the ESC key.
-
-#### closeOnOutsideClick
-`Default: true`
-
-If true, closes the modal window by clicking anywhere on the page.
-
-#### modifier
-`Default: ''`
-
-Modifier CSS classes for the modal that is added to the overlay, modal, background and wrapper (see [CSS](#css)).
-
-#### appendTo
-`Default: document.body`
-
-## Globals
-
-```html
-<script>
-window.REMODAL_GLOBALS = {
-  NAMESPACE: 'modal',
-  DEFAULTS: {
-    hashTracking: false
-  }
-};
-</script>
-<script src="../dist/remodal.js"></script>
+### Create New Maps
+```javascript
+// In map.js, add to maps object
+customMap: {
+    name: 'My Custom Map',
+    blocks: [
+        { x: 0, y: 1, z: 0, type: 'stone' },
+        // ... more blocks
+    ],
+    spawnPoints: { /* spawn locations */ }
+}
 ```
 
-#### NAMESPACE
-
-Base HTML class for your modals. CSS theme should be updated to reflect this.
-
-#### DEFAULTS
-
-Extends the default settings.
-
-## Initialization with JavaScript
-
-Do not set the 'remodal' class, if you prefer a JS initialization.
-```html
-<div data-remodal-id="modal">
-  <button data-remodal-action="close" class="remodal-close"></button>
-  <h1>Remodal</h1>
-  <p>
-    Responsive, lightweight, fast, synchronized with CSS animations, fully customizable modal window plugin with declarative configuration and hash tracking.
-  </p>
-</div>
-<script>
-    var options = {...};
-
-    $('[data-remodal-id=modal]').remodal(options);
-</script>
+### Modify Block Types
+```javascript
+// In map.js, modify blockTypes
+blockTypes: {
+    customBlock: { 
+        color: 0xFF6B35, 
+        destructible: true, 
+        health: 150 
+    }
+}
 ```
 
-## Methods
+## 🌐 Browser Compatibility
 
-Get the instance of the modal and call a method:
-```js
-var inst = $('[data-remodal-id=modal]').remodal();
+- **Chrome/Chromium**: Full support ✅
+- **Firefox**: Full support ✅
+- **Safari**: Full support ✅
+- **Edge**: Full support ✅
 
-/**
- * Opens the modal window
- */
-inst.open();
+### Requirements
+- WebGL 1.0 support
+- Web Audio API support
+- Pointer Lock API support
+- ES6+ JavaScript support
 
-/**
- * Closes the modal window
- */
-inst.close();
+## 🔊 Audio System
 
-/**
- * Returns a current state of the modal
- * @returns {'closed'|'closing'|'opened'|'opening'}
- */
-inst.getState();
+The game features a sophisticated procedural audio system:
 
-/**
- * Destroys the modal window
- */
-inst.destroy();
-```
+### Sound Types
+- **Gunshots**: Realistic weapon firing sounds
+- **Explosions**: Multi-layered explosion effects
+- **Environmental**: Footsteps, block breaking, ambient sounds
+- **UI**: Menu interactions and feedback sounds
 
-## Events
+### 3D Audio Features
+- Distance-based volume attenuation
+- Spatial positioning (planned)
+- Dynamic range compression
+- Multiple audio channels (SFX, Music, Master)
 
-```js
-$(document).on('opening', '.remodal', function () {
-  console.log('Modal is opening');
-});
+## 🎨 Graphics & Rendering
 
-$(document).on('opened', '.remodal', function () {
-  console.log('Modal is opened');
-});
+### Visual Style
+- **Blocky Aesthetic**: Minecraft-inspired cubic world
+- **Pixelated Textures**: Retro gaming feel with modern lighting
+- **Particle Effects**: Explosions, muzzle flashes, block destruction
+- **Dynamic Lighting**: Directional shadows and ambient lighting
 
-$(document).on('closing', '.remodal', function (e) {
+### Performance Optimizations
+- Frustum culling for off-screen objects
+- LOD system for distant blocks
+- Efficient particle pooling
+- Optimized physics calculations
 
-  // Reason: 'confirmation', 'cancellation'
-  console.log('Modal is closing' + (e.reason ? ', reason: ' + e.reason : ''));
-});
+## 🚧 Development Status
 
-$(document).on('closed', '.remodal', function (e) {
+### Completed Features ✅
+- ✅ Core game engine and 3D rendering
+- ✅ First-person player movement and physics
+- ✅ Complete weapon system with multiple gun types
+- ✅ Destructible block-based world
+- ✅ Professional UI and HUD system
+- ✅ Procedural audio system
+- ✅ Particle effects and visual feedback
+- ✅ Basic AI and game modes framework
 
-  // Reason: 'confirmation', 'cancellation'
-  console.log('Modal is closed' + (e.reason ? ', reason: ' + e.reason : ''));
-});
+### Planned Features 🔄
+- 🔄 Multiplayer networking (WebSocket/WebRTC)
+- 🔄 Advanced AI opponents
+- 🔄 More maps and game modes
+- 🔄 Weapon customization system
+- 🔄 Achievement system
+- 🔄 Mobile device support
 
-$(document).on('confirmation', '.remodal', function () {
-  console.log('Confirmation button is clicked');
-});
+## 🤝 Contributing
 
-$(document).on('cancellation', '.remodal', function () {
-  console.log('Cancel button is clicked');
-});
-```
+This is an open-source project. Contributions are welcome!
 
-## CSS
+### How to Contribute
+1. Fork the repository
+2. Create a feature branch
+3. Make your changes
+4. Test thoroughly
+5. Submit a pull request
 
-#### Classes
+### Areas for Contribution
+- New weapons and game mechanics
+- Additional maps and environments
+- UI/UX improvements
+- Performance optimizations
+- Mobile compatibility
+- Multiplayer implementation
 
-`.remodal` – the default class of modal dialogs.
+## 📝 License
 
-`.remodal-wrapper` – the additional wrapper for the `.remodal`, it is not the overlay and used for the alignment.
+This project is open-source and available under the MIT License.
 
-`.remodal-overlay` – the overlay of modal dialogs, it is under the wrapper.
+## 🙏 Acknowledgments
 
-`.remodal-bg` – the background of modal dialogs, it is under the overlay and usually it is the wrapper of your content. You should add it on your own.
+- **Three.js** - Amazing 3D graphics library
+- **Cannon.js** - Excellent physics engine
+- **Counter-Strike** - Inspiration for gameplay mechanics
+- **Minecraft** - Inspiration for visual style
 
-The `remodal` prefix can be changed in the global settings. See [the `NAMESPACE` option](#namespace).
+## 📞 Support
 
-#### States
+If you encounter issues or have questions:
+1. Check the browser console for error messages
+2. Ensure your browser supports WebGL and Web Audio API
+3. Try refreshing the page
+4. Create an issue on the project repository
 
-States are added to the `.remodal`, `.remodal-overlay`, `.remodal-bg`, `.remodal-wrapper` classes.
+---
 
-List:
-```
-.remodal-is-opening
-.remodal-is-opened
-.remodal-is-closing
-.remodal-is-closed
-```
-
-#### Modifier
-
-A modifier that is specified in the [options](#options) is added to the `.remodal`, `.remodal-overlay`, `.remodal-bg`, `.remodal-wrapper` classes.
-
-## Using with other javascript libraries
-
-Remodal has wrappers that make it easy to use with other javascript libraries:
-
-### Ember
-
-* [ember-remodal](https://github.com/sethbrasile/ember-remodal)
-
-## License
-
-```
-The MIT License (MIT)
-
-Copyright (c) 2015 Ilya Makarov
-
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
-
-The above copyright notice and this permission notice shall be included in all
-copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-SOFTWARE.
-```
+**Have fun playing BlockStrike!** 🎮💥

@@ -1,0 +1,324 @@
+/**
+ * FlipBook Pro - Frontend Styles
+ */
+
+.flipbook-container {
+    position: relative;
+    margin: 20px auto;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    overflow: hidden;
+    background: #f9f9f9;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.flipbook-canvas-container {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    overflow: hidden;
+}
+
+.flipbook-canvas-container canvas {
+    display: block;
+    width: 100%;
+    height: 100%;
+    cursor: grab;
+}
+
+.flipbook-canvas-container canvas:active {
+    cursor: grabbing;
+}
+
+/* Loading State */
+.flipbook-loading {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    z-index: 10;
+}
+
+.flipbook-spinner {
+    width: 40px;
+    height: 40px;
+    border: 4px solid #f3f3f3;
+    border-top: 4px solid #007cba;
+    border-radius: 50%;
+    animation: flipbook-spin 1s linear infinite;
+    margin: 0 auto 10px;
+}
+
+@keyframes flipbook-spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+.flipbook-loading p {
+    margin: 0;
+    color: #666;
+    font-size: 14px;
+}
+
+/* Error State */
+.flipbook-error {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    color: #d63638;
+    z-index: 10;
+}
+
+.flipbook-error p {
+    margin: 0;
+    font-size: 14px;
+}
+
+/* Controls */
+.flipbook-controls {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(0, 0, 0, 0.8);
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.flipbook-container:hover .flipbook-controls {
+    opacity: 1;
+}
+
+.flipbook-btn {
+    background: rgba(255, 255, 255, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    color: white;
+    padding: 8px 12px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 36px;
+    height: 36px;
+}
+
+.flipbook-btn:hover {
+    background: rgba(255, 255, 255, 0.3);
+    border-color: rgba(255, 255, 255, 0.5);
+}
+
+.flipbook-btn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.flipbook-btn:disabled:hover {
+    background: rgba(255, 255, 255, 0.2);
+    border-color: rgba(255, 255, 255, 0.3);
+}
+
+.flipbook-icon {
+    font-size: 16px;
+    font-weight: bold;
+    line-height: 1;
+}
+
+.flipbook-page-info {
+    color: white;
+    font-size: 14px;
+    padding: 0 10px;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.flipbook-separator {
+    opacity: 0.7;
+}
+
+/* Modal/Lightbox */
+.flipbook-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 999999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+}
+
+.flipbook-modal-backdrop {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.9);
+    cursor: pointer;
+}
+
+.flipbook-modal-content {
+    position: relative;
+    background: white;
+    border-radius: 8px;
+    max-width: 95vw;
+    max-height: 95vh;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+.flipbook-modal-close {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: rgba(0, 0, 0, 0.7);
+    border: none;
+    color: white;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 18px;
+    line-height: 1;
+    z-index: 10;
+    transition: background 0.3s ease;
+}
+
+.flipbook-modal-close:hover {
+    background: rgba(0, 0, 0, 0.9);
+}
+
+.flipbook-modal-body {
+    width: 100%;
+    height: 100%;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .flipbook-container {
+        margin: 10px auto;
+        border-radius: 4px;
+    }
+    
+    .flipbook-controls {
+        padding: 8px;
+        gap: 8px;
+        opacity: 1; /* Always show controls on mobile */
+    }
+    
+    .flipbook-btn {
+        padding: 6px 10px;
+        min-width: 32px;
+        height: 32px;
+        font-size: 12px;
+    }
+    
+    .flipbook-icon {
+        font-size: 14px;
+    }
+    
+    .flipbook-page-info {
+        font-size: 12px;
+        padding: 0 5px;
+    }
+    
+    .flipbook-modal {
+        padding: 10px;
+    }
+    
+    .flipbook-modal-close {
+        top: 5px;
+        right: 5px;
+        width: 28px;
+        height: 28px;
+        font-size: 16px;
+    }
+}
+
+@media (max-width: 480px) {
+    .flipbook-controls {
+        flex-wrap: wrap;
+        justify-content: space-between;
+    }
+    
+    .flipbook-page-info {
+        order: -1;
+        flex-basis: 100%;
+        text-align: center;
+        margin-bottom: 5px;
+    }
+}
+
+/* Accessibility */
+.flipbook-btn:focus {
+    outline: 2px solid #007cba;
+    outline-offset: 2px;
+}
+
+.flipbook-modal-close:focus {
+    outline: 2px solid white;
+    outline-offset: 2px;
+}
+
+/* Print Styles */
+@media print {
+    .flipbook-container {
+        border: none;
+        box-shadow: none;
+        page-break-inside: avoid;
+    }
+    
+    .flipbook-controls {
+        display: none;
+    }
+}
+
+/* High DPI Displays */
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+    .flipbook-canvas-container canvas {
+        image-rendering: -webkit-optimize-contrast;
+        image-rendering: crisp-edges;
+    }
+}
+
+/* Animation Classes */
+.flipbook-page-turning {
+    pointer-events: none;
+}
+
+.flipbook-zoom-transition {
+    transition: transform 0.3s ease;
+}
+
+/* Custom Scrollbar for Modal */
+.flipbook-modal-body::-webkit-scrollbar {
+    width: 8px;
+}
+
+.flipbook-modal-body::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 4px;
+}
+
+.flipbook-modal-body::-webkit-scrollbar-thumb {
+    background: #888;
+    border-radius: 4px;
+}
+
+.flipbook-modal-body::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}

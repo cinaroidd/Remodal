@@ -1,0 +1,3 @@
+/* Frontend styles for WP 3D Flipbook */
+.wp3dfb-viewer { position: relative; }
+.wp3dfb-canvas { width: 100%; height: 100%; }

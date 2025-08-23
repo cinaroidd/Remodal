@@ -1,0 +1,422 @@
+/* WP 3D Flipbook Styles */
+
+.wp3d-flipbook-container {
+    position: relative;
+    margin: 20px 0;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+}
+
+.wp3d-flipbook-viewer {
+    position: relative;
+    border-radius: 8px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    background: #f8f9fa;
+}
+
+.wp3d-flipbook-pages {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    perspective: 1000px;
+}
+
+.wp3d-flipbook-page {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    transform-style: preserve-3d;
+    transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+    cursor: pointer;
+}
+
+.wp3d-flipbook-page.flipping {
+    pointer-events: none;
+}
+
+.wp3d-flipbook-page-front,
+.wp3d-flipbook-page-back {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    background: white;
+    border-radius: 2px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.wp3d-flipbook-page-back {
+    transform: rotateY(180deg);
+}
+
+.wp3d-flipbook-page img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+}
+
+.wp3d-flipbook-page.flipped {
+    transform: rotateY(180deg);
+}
+
+/* Controls */
+.wp3d-flipbook-controls {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background: rgba(0, 0, 0, 0.8);
+    padding: 12px 20px;
+    border-radius: 25px;
+    backdrop-filter: blur(10px);
+    z-index: 100;
+    transition: opacity 0.3s ease;
+}
+
+.wp3d-flipbook-container:hover .wp3d-flipbook-controls {
+    opacity: 1;
+}
+
+.wp3d-flipbook-controls.hidden {
+    opacity: 0;
+    pointer-events: none;
+}
+
+.wp3d-flipbook-btn {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 18px;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s ease;
+    font-weight: bold;
+}
+
+.wp3d-flipbook-btn:hover {
+    background: rgba(255, 255, 255, 0.2);
+    transform: scale(1.1);
+}
+
+.wp3d-flipbook-btn:active {
+    transform: scale(0.95);
+}
+
+.wp3d-flipbook-btn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    transform: none;
+}
+
+.wp3d-flipbook-page-info {
+    color: white;
+    font-size: 14px;
+    font-weight: 500;
+    margin: 0 10px;
+    min-width: 60px;
+    text-align: center;
+}
+
+/* Loading */
+.wp3d-flipbook-loading {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: rgba(255, 255, 255, 0.9);
+    z-index: 10;
+}
+
+.wp3d-flipbook-loading.hidden {
+    display: none;
+}
+
+.wp3d-flipbook-spinner {
+    width: 40px;
+    height: 40px;
+    border: 4px solid #f3f3f3;
+    border-top: 4px solid #3498db;
+    border-radius: 50%;
+    animation: wp3d-spin 1s linear infinite;
+    margin-bottom: 15px;
+}
+
+@keyframes wp3d-spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+.wp3d-flipbook-loading p {
+    margin: 0;
+    color: #666;
+    font-size: 16px;
+}
+
+/* Thumbnails */
+.wp3d-flipbook-thumbnails {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    width: 200px;
+    max-height: 400px;
+    background: rgba(0, 0, 0, 0.8);
+    border-radius: 8px;
+    padding: 15px;
+    backdrop-filter: blur(10px);
+    z-index: 50;
+    overflow-y: auto;
+}
+
+.wp3d-flipbook-thumbnails-content {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+}
+
+.wp3d-flipbook-thumbnail {
+    width: 100%;
+    height: 80px;
+    background: white;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 12px;
+    color: #666;
+    border: 2px solid transparent;
+}
+
+.wp3d-flipbook-thumbnail:hover {
+    transform: scale(1.05);
+    border-color: #3498db;
+}
+
+.wp3d-flipbook-thumbnail.active {
+    border-color: #3498db;
+    background: #e3f2fd;
+}
+
+.wp3d-flipbook-thumbnail img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: cover;
+}
+
+/* Fullscreen */
+.wp3d-flipbook-container.fullscreen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 9999;
+    background: #000;
+}
+
+.wp3d-flipbook-container.fullscreen .wp3d-flipbook-viewer {
+    width: 100%;
+    height: 100%;
+    border-radius: 0;
+}
+
+/* Zoom controls */
+.wp3d-flipbook-zoom-controls {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    z-index: 50;
+}
+
+.wp3d-flipbook-zoom-slider {
+    width: 100px;
+    height: 4px;
+    background: rgba(255, 255, 255, 0.3);
+    border-radius: 2px;
+    outline: none;
+    -webkit-appearance: none;
+}
+
+.wp3d-flipbook-zoom-slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    width: 16px;
+    height: 16px;
+    background: white;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.wp3d-flipbook-zoom-slider::-moz-range-thumb {
+    width: 16px;
+    height: 16px;
+    background: white;
+    border-radius: 50%;
+    cursor: pointer;
+    border: none;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .wp3d-flipbook-controls {
+        bottom: 10px;
+        padding: 8px 15px;
+        gap: 8px;
+    }
+    
+    .wp3d-flipbook-btn {
+        width: 35px;
+        height: 35px;
+        font-size: 16px;
+    }
+    
+    .wp3d-flipbook-page-info {
+        font-size: 12px;
+        margin: 0 8px;
+    }
+    
+    .wp3d-flipbook-thumbnails {
+        width: 150px;
+        max-height: 300px;
+        top: 10px;
+        right: 10px;
+        padding: 10px;
+    }
+    
+    .wp3d-flipbook-thumbnails-content {
+        grid-template-columns: 1fr;
+        gap: 8px;
+    }
+    
+    .wp3d-flipbook-thumbnail {
+        height: 60px;
+        font-size: 10px;
+    }
+}
+
+@media (max-width: 480px) {
+    .wp3d-flipbook-controls {
+        flex-wrap: wrap;
+        justify-content: center;
+        width: calc(100% - 20px);
+        left: 10px;
+        transform: none;
+    }
+    
+    .wp3d-flipbook-thumbnails {
+        width: 120px;
+        max-height: 250px;
+    }
+}
+
+/* Animation classes */
+.wp3d-flipbook-fade-in {
+    animation: wp3d-fade-in 0.5s ease-in-out;
+}
+
+@keyframes wp3d-fade-in {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.wp3d-flipbook-slide-in {
+    animation: wp3d-slide-in 0.3s ease-out;
+}
+
+@keyframes wp3d-slide-in {
+    from { transform: translateX(-100%); }
+    to { transform: translateX(0); }
+}
+
+/* Error states */
+.wp3d-flipbook-error {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 40px 20px;
+    text-align: center;
+    color: #666;
+}
+
+.wp3d-flipbook-error-icon {
+    font-size: 48px;
+    margin-bottom: 15px;
+    color: #e74c3c;
+}
+
+.wp3d-flipbook-error h3 {
+    margin: 0 0 10px 0;
+    color: #333;
+}
+
+.wp3d-flipbook-error p {
+    margin: 0;
+    line-height: 1.5;
+}
+
+/* Accessibility */
+.wp3d-flipbook-container:focus-within {
+    outline: 2px solid #3498db;
+    outline-offset: 2px;
+}
+
+.wp3d-flipbook-btn:focus {
+    outline: 2px solid #3498db;
+    outline-offset: 2px;
+}
+
+/* High contrast mode */
+@media (prefers-contrast: high) {
+    .wp3d-flipbook-controls {
+        background: rgba(0, 0, 0, 0.95);
+        border: 2px solid white;
+    }
+    
+    .wp3d-flipbook-btn {
+        border: 1px solid white;
+    }
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+    .wp3d-flipbook-page {
+        transition: none;
+    }
+    
+    .wp3d-flipbook-btn {
+        transition: none;
+    }
+    
+    .wp3d-flipbook-thumbnail {
+        transition: none;
+    }
+    
+    .wp3d-flipbook-spinner {
+        animation: none;
+    }
+}

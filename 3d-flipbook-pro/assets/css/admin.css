@@ -1,0 +1,419 @@
+/**
+ * FlipBook Pro - Admin Styles
+ */
+
+/* Admin Menu Icon */
+.wp-menu-image.dashicons-book-alt:before {
+    font-family: dashicons;
+    content: '\f330';
+}
+
+/* Admin Page Styles */
+.flipbook-admin-page {
+    max-width: 1200px;
+}
+
+.flipbook-admin-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.flipbook-admin-header h1 {
+    margin: 0;
+}
+
+/* Form Styles */
+.flipbook-form-section {
+    background: white;
+    border: 1px solid #c3c4c7;
+    border-radius: 4px;
+    margin-bottom: 20px;
+}
+
+.flipbook-form-section h3 {
+    margin: 0;
+    padding: 15px 20px;
+    border-bottom: 1px solid #c3c4c7;
+    background: #f6f7f7;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.flipbook-form-section .form-table {
+    margin: 0;
+}
+
+.flipbook-form-section .form-table th {
+    padding-left: 20px;
+}
+
+.flipbook-form-section .form-table td {
+    padding-right: 20px;
+}
+
+/* Upload Button */
+.flipbook-upload-area {
+    border: 2px dashed #c3c4c7;
+    border-radius: 4px;
+    padding: 40px 20px;
+    text-align: center;
+    background: #f9f9f9;
+    transition: all 0.3s ease;
+}
+
+.flipbook-upload-area:hover {
+    border-color: #007cba;
+    background: #f0f6fc;
+}
+
+.flipbook-upload-area.dragover {
+    border-color: #007cba;
+    background: #f0f6fc;
+}
+
+.flipbook-upload-icon {
+    font-size: 48px;
+    color: #c3c4c7;
+    margin-bottom: 10px;
+}
+
+.flipbook-upload-text {
+    font-size: 16px;
+    color: #646970;
+    margin-bottom: 15px;
+}
+
+.flipbook-upload-hint {
+    font-size: 14px;
+    color: #8c8f94;
+}
+
+/* Preview Area */
+.flipbook-preview {
+    border: 1px solid #c3c4c7;
+    border-radius: 4px;
+    padding: 20px;
+    background: white;
+    margin-top: 20px;
+}
+
+.flipbook-preview h4 {
+    margin-top: 0;
+    margin-bottom: 15px;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.flipbook-preview-container {
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    overflow: hidden;
+    background: #f9f9f9;
+}
+
+/* Settings Tabs */
+.flipbook-settings-tabs {
+    border-bottom: 1px solid #c3c4c7;
+    margin-bottom: 20px;
+}
+
+.flipbook-settings-tabs .nav-tab {
+    border-bottom: 1px solid transparent;
+    margin-bottom: -1px;
+}
+
+.flipbook-settings-tabs .nav-tab-active {
+    border-bottom-color: white;
+}
+
+/* Shortcode Display */
+.flipbook-shortcode-display {
+    background: #f6f7f7;
+    border: 1px solid #c3c4c7;
+    border-radius: 4px;
+    padding: 15px;
+    margin: 15px 0;
+}
+
+.flipbook-shortcode-display label {
+    display: block;
+    font-weight: 600;
+    margin-bottom: 5px;
+    font-size: 13px;
+}
+
+.flipbook-shortcode-code {
+    font-family: Consolas, Monaco, monospace;
+    font-size: 13px;
+    background: white;
+    border: 1px solid #8c8f94;
+    border-radius: 3px;
+    padding: 8px 10px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.copy-shortcode {
+    font-size: 11px;
+    text-decoration: none;
+    color: #007cba;
+    margin-left: 5px;
+}
+
+.copy-shortcode:hover {
+    color: #005a87;
+}
+
+/* List Table Customizations */
+.wp-list-table .column-shortcode {
+    width: 200px;
+}
+
+.wp-list-table .column-type {
+    width: 80px;
+}
+
+.wp-list-table .column-date {
+    width: 120px;
+}
+
+.wp-list-table .column-actions {
+    width: 120px;
+}
+
+/* Status Indicators */
+.flipbook-status {
+    padding: 2px 8px;
+    border-radius: 3px;
+    font-size: 11px;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+.flipbook-status.active {
+    background: #d4edda;
+    color: #155724;
+}
+
+.flipbook-status.inactive {
+    background: #f8d7da;
+    color: #721c24;
+}
+
+/* Progress Bar */
+.flipbook-progress {
+    background: #f0f0f1;
+    border-radius: 10px;
+    overflow: hidden;
+    height: 20px;
+    margin: 10px 0;
+}
+
+.flipbook-progress-bar {
+    background: linear-gradient(90deg, #007cba, #005a87);
+    height: 100%;
+    border-radius: 10px;
+    transition: width 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 12px;
+    font-weight: 600;
+}
+
+/* Toggle Switch */
+.flipbook-toggle {
+    position: relative;
+    display: inline-block;
+    width: 50px;
+    height: 24px;
+}
+
+.flipbook-toggle input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.flipbook-toggle-slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    transition: 0.3s;
+    border-radius: 24px;
+}
+
+.flipbook-toggle-slider:before {
+    position: absolute;
+    content: "";
+    height: 18px;
+    width: 18px;
+    left: 3px;
+    bottom: 3px;
+    background-color: white;
+    transition: 0.3s;
+    border-radius: 50%;
+}
+
+.flipbook-toggle input:checked + .flipbook-toggle-slider {
+    background-color: #007cba;
+}
+
+.flipbook-toggle input:checked + .flipbook-toggle-slider:before {
+    transform: translateX(26px);
+}
+
+/* Color Picker */
+.flipbook-color-picker {
+    display: inline-block;
+    width: 40px;
+    height: 30px;
+    border: 1px solid #8c8f94;
+    border-radius: 3px;
+    cursor: pointer;
+    vertical-align: middle;
+    margin-right: 10px;
+}
+
+/* Responsive Admin */
+@media (max-width: 782px) {
+    .flipbook-admin-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 15px;
+    }
+    
+    .flipbook-form-section .form-table th,
+    .flipbook-form-section .form-table td {
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+    
+    .wp-list-table .column-shortcode,
+    .wp-list-table .column-type,
+    .wp-list-table .column-date {
+        display: none;
+    }
+}
+
+/* Loading States */
+.flipbook-loading-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(255, 255, 255, 0.8);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+}
+
+.flipbook-loading-spinner {
+    width: 32px;
+    height: 32px;
+    border: 3px solid #f3f3f3;
+    border-top: 3px solid #007cba;
+    border-radius: 50%;
+    animation: flipbook-admin-spin 1s linear infinite;
+}
+
+@keyframes flipbook-admin-spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Success/Error Messages */
+.flipbook-message {
+    padding: 10px 15px;
+    margin: 15px 0;
+    border-radius: 4px;
+    border-left: 4px solid;
+}
+
+.flipbook-message.success {
+    background: #d4edda;
+    border-color: #28a745;
+    color: #155724;
+}
+
+.flipbook-message.error {
+    background: #f8d7da;
+    border-color: #dc3545;
+    color: #721c24;
+}
+
+.flipbook-message.warning {
+    background: #fff3cd;
+    border-color: #ffc107;
+    color: #856404;
+}
+
+/* Help Text */
+.flipbook-help {
+    font-size: 13px;
+    color: #646970;
+    font-style: italic;
+    margin-top: 5px;
+}
+
+/* Button Styles */
+.flipbook-btn-primary {
+    background: #007cba;
+    border-color: #007cba;
+    color: white;
+}
+
+.flipbook-btn-primary:hover {
+    background: #005a87;
+    border-color: #005a87;
+}
+
+.flipbook-btn-secondary {
+    background: #f6f7f7;
+    border-color: #c3c4c7;
+    color: #2c3338;
+}
+
+.flipbook-btn-secondary:hover {
+    background: #f0f0f1;
+    border-color: #8c8f94;
+}
+
+/* Tooltips */
+.flipbook-tooltip {
+    position: relative;
+    display: inline-block;
+    cursor: help;
+}
+
+.flipbook-tooltip .flipbook-tooltip-text {
+    visibility: hidden;
+    width: 200px;
+    background-color: #2c3338;
+    color: white;
+    text-align: center;
+    border-radius: 4px;
+    padding: 8px;
+    position: absolute;
+    z-index: 1;
+    bottom: 125%;
+    left: 50%;
+    margin-left: -100px;
+    opacity: 0;
+    transition: opacity 0.3s;
+    font-size: 12px;
+}
+
+.flipbook-tooltip:hover .flipbook-tooltip-text {
+    visibility: visible;
+    opacity: 1;
+}

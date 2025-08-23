@@ -1,0 +1,275 @@
+/**
+ * FlipBook Pro - Block Editor Styles
+ */
+
+.flipbook-block-editor {
+    margin: 20px 0;
+}
+
+.flipbook-block-preview {
+    position: relative;
+}
+
+.flipbook-preview-container {
+    position: relative;
+    overflow: hidden;
+}
+
+.flipbook-placeholder {
+    margin: 20px 0;
+}
+
+.flipbook-placeholder h3 {
+    margin: 0 0 10px 0;
+    font-size: 18px;
+    font-weight: 600;
+}
+
+.flipbook-placeholder p {
+    margin: 0;
+    color: #666;
+    font-size: 14px;
+}
+
+/* Inspector Controls Styling */
+.components-panel__body .components-base-control__label {
+    font-weight: 600;
+    margin-bottom: 5px;
+}
+
+.components-panel__body .components-base-control__help {
+    font-size: 12px;
+    color: #757575;
+    margin-top: 5px;
+}
+
+/* Range Control Styling */
+.components-range-control__wrapper {
+    margin-bottom: 15px;
+}
+
+.components-range-control__number {
+    width: 60px !important;
+}
+
+/* Toggle Control Styling */
+.components-toggle-control {
+    margin-bottom: 15px;
+}
+
+.components-toggle-control .components-toggle-control__label {
+    font-weight: 600;
+}
+
+/* Select Control Styling */
+.components-select-control__input {
+    margin-bottom: 5px;
+}
+
+/* Block Toolbar */
+.block-editor-block-toolbar .flipbook-toolbar-button {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.block-editor-block-toolbar .flipbook-toolbar-button .dashicon {
+    width: 18px;
+    height: 18px;
+    font-size: 18px;
+}
+
+/* Preview Overlay */
+.flipbook-preview-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    cursor: pointer;
+}
+
+.flipbook-preview-container:hover .flipbook-preview-overlay {
+    opacity: 1;
+}
+
+.flipbook-preview-overlay .components-button {
+    background: white;
+    border: 1px solid #ddd;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Loading State */
+.flipbook-loading-state {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 40px;
+    color: #666;
+}
+
+.flipbook-loading-spinner {
+    width: 20px;
+    height: 20px;
+    border: 2px solid #f3f3f3;
+    border-top: 2px solid #007cba;
+    border-radius: 50%;
+    animation: flipbook-spin 1s linear infinite;
+    margin-right: 10px;
+}
+
+@keyframes flipbook-spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Error State */
+.flipbook-error-state {
+    padding: 20px;
+    background: #f8d7da;
+    border: 1px solid #f5c6cb;
+    border-radius: 4px;
+    color: #721c24;
+    text-align: center;
+}
+
+.flipbook-error-state .dashicons {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+/* Responsive Design */
+@media (max-width: 782px) {
+    .flipbook-block-editor {
+        margin: 15px 0;
+    }
+    
+    .flipbook-placeholder {
+        margin: 15px 0;
+    }
+    
+    .flipbook-placeholder div[style*="padding"] {
+        padding: 20px !important;
+    }
+    
+    .flipbook-placeholder div[style*="font-size: 48px"] {
+        font-size: 32px !important;
+    }
+}
+
+/* Dark Mode Support */
+@media (prefers-color-scheme: dark) {
+    .flipbook-placeholder div[style*="border: 2px dashed"] {
+        border-color: #555 !important;
+        background: #1e1e1e !important;
+    }
+    
+    .flipbook-placeholder div[style*="color: #666"] {
+        color: #ccc !important;
+    }
+    
+    .flipbook-preview-container[style*="background: #f9f9f9"] {
+        background: #2c2c2c !important;
+        border-color: #555 !important;
+    }
+}
+
+/* Block Validation */
+.flipbook-block-validation-error {
+    padding: 15px;
+    background: #fff3cd;
+    border: 1px solid #ffeaa7;
+    border-radius: 4px;
+    color: #856404;
+    margin: 10px 0;
+}
+
+.flipbook-block-validation-error .dashicons {
+    margin-right: 8px;
+    color: #f39c12;
+}
+
+/* Settings Panel Enhancements */
+.components-panel__body-title {
+    font-weight: 600;
+}
+
+.flipbook-settings-section {
+    border-bottom: 1px solid #e2e4e7;
+    padding-bottom: 15px;
+    margin-bottom: 15px;
+}
+
+.flipbook-settings-section:last-child {
+    border-bottom: none;
+    margin-bottom: 0;
+}
+
+.flipbook-settings-section h4 {
+    margin: 0 0 10px 0;
+    font-size: 13px;
+    font-weight: 600;
+    text-transform: uppercase;
+    color: #555;
+}
+
+/* Custom Control Styles */
+.flipbook-dimension-control {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+.flipbook-dimension-control .components-base-control {
+    flex: 1;
+    margin-bottom: 0;
+}
+
+.flipbook-dimension-control .flipbook-dimension-separator {
+    color: #666;
+    font-weight: 600;
+}
+
+/* Preview Badge */
+.flipbook-preview-badge {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: rgba(0, 124, 186, 0.9);
+    color: white;
+    padding: 4px 8px;
+    border-radius: 3px;
+    font-size: 11px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+/* Animation Classes */
+.flipbook-block-enter {
+    opacity: 0;
+    transform: translateY(10px);
+}
+
+.flipbook-block-enter-active {
+    opacity: 1;
+    transform: translateY(0);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.flipbook-block-exit {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.flipbook-block-exit-active {
+    opacity: 0;
+    transform: translateY(-10px);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}

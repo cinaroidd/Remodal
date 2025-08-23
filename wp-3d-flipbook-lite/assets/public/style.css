@@ -1,0 +1,28 @@
+/* Public styles for WP 3D Flipbook Lite */
+.wp3d-flipbook {
+	position: relative;
+	width: 100%;
+}
+.wp3d-flipbook .wp3d-toolbar {
+	display: flex;
+	gap: 8px;
+	align-items: center;
+	padding: 6px 0;
+}
+.wp3d-flipbook .wp3d-btn {
+	background: #f1f1f1;
+	border: 1px solid #ccc;
+	padding: 6px 10px;
+	cursor: pointer;
+}
+.wp3d-flipbook .wp3d-btn:hover {
+	background: #e7e7e7;
+}
+.wp3d-flipbook .wp3d-canvas {
+	width: 100%;
+	height: auto;
+}
+.wp3d-flipbook canvas {
+	display: block;
+	max-width: 100%;
+}
